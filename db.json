@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Valerie",
+      "password": "123aaa"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "title": "Homework",
+      "description": "Have to finish french exam online."
+    },
+    {
+      "id": 2,
+      "title": "Job schedule",
+      "description": "Finish my job today."
+    },
+    {
+      "id": 3,
+      "title": "Friends",
+      "description": "I have to meet my friends this week."
+    }
+  ]
+}

@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Items from "./components/Items";
+import { useState , useEffect} from "react"
+import AddItem from "./components/AddItem";
+import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
+  const [showAddItem, setShowAddItem] = useState(false)
+  const [items, setItems] = useState([])
+  useEffect(()=> {
+    const getItems = async () => {
+      const itemsFromServer = await fetchItems()
+      setItems(itemsFromServer)
+    }
+
+    getItems()
+  }, [])
+
+  const fetchItems = async () => {
+    const res = await fetch('http://localhost:5000/items')
+    const data = await res.json()
+
+    return data
+  }
+
+  const addItem = async(item) => {
+    const res = await fetch('http://localhost:5000/items',
+    {method : 'POST',
+    headers: {'Content-type': 'application/json'},
+    body: JSON.stringify(item),})
+
+    const data = await res.json()
+
+    setItems([...items, data])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="container">
+        <Header />
+        {items.length > 0 ? (<Items items = {items}/>): 'No items to show.'}
+        {showAddItem && <AddItem onAdd={addItem}/>}
+        <Footer onAdd={() => setShowAddItem(!showAddItem)} showAddItem={showAddItem} />
+      </div>
+    
   );
 }
 
