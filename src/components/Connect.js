@@ -1,5 +1,6 @@
-import App from "../App"
+import App from "./App"
 import { useState } from 'react'
+import { Redirect } from "react-router"
 
 const Connect = () => {
     const [username, setUsername] = useState('')
@@ -28,7 +29,7 @@ const Connect = () => {
     }
     return (
         <div>
-            {isAuthenitfied ? <App /> : 
+            {isAuthenitfied ? <Redirect to='/app'></Redirect> : 
             <div className="container">
                 <form className='add-form'>
                     <div className='form-control'>

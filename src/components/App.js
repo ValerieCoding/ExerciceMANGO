@@ -1,8 +1,8 @@
-import Header from "./components/Header";
-import Items from "./components/Items";
+import Header from "./Header";
+import Items from "./Items";
 import { useState , useEffect} from "react"
-import AddItem from "./components/AddItem";
-import Footer from "./components/Footer";
+import AddItem from "./AddItem";
+import Footer from "./Footer";
 
 const App = () => {
   const [showAddItem, setShowAddItem] = useState(false)
