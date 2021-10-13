@@ -6,5 +6,5 @@
 
 #Infos
 
-1.Il y a un user : username -> Valerie, password -> 123aaa
-2.On peut voir les users et les items dans le fichier db.json
+1. Il y a un user : username -> Valerie, password -> 123aaa
+2. On peut voir les users et les items dans le fichier db.json
